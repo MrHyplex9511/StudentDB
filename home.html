@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StudentDB Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/firebase-init.js"></script>
+  <script type="module" src="js/home.js" defer></script>
+</head>
+<script src="js/clickspark.js"></script>
+
+<body class="fancy-background">
+  <div class="container">
+    <h1>Welcome to StudentDB</h1>
+    <p>Access your study materials, track goals, and crush procrastination!</p>
+    <div class="resources">
+      <h2>Useful Study Websites</h2>
+      <ul id="animatedList">
+        <li><a href="https://epathshala.nic.in" target="_blank">ePathshala (NCERT Textbooks & Resources)</a></li>
+        <li><a href="https://vedantu.com/study-material" target="_blank">Vedantu: CBSE Class 9 Materials</a></li>
+        <li><a href="https://edurev.in/explore/26/Class-9" target="_blank">EduRev: Notes & MCQs</a></li>
+        <li><a href="https://www.ndl.gov.in" target="_blank">NDLI: National Digital Library</a></li>
+        <li><a href="https://www.jagranjosh.com" target="_blank">Jagran Josh Education</a></li>
+      </ul>
+    </div>
+  </div>
+  <button class="logoutBtn" style="position: fixed; bottom: 0; left: 0;">Logout</button>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('#animatedList li');
+  items.forEach((li, i) => {
+    li.style.animation = `slideFadeIn 0.6s ease forwards`;
+    li.style.animationDelay = `${i * 0.15}s`;
+  });
+});
+</script>
+</body>
+</html>
+

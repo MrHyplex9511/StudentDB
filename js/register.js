@@ -1,32 +1,25 @@
-// js/register.js
-import { auth, db } from "./firebase-init.js";
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-import { setDoc, doc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import { app } from "./firebase-init.js";
 
-const form = document.getElementById("registerForm");
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+document.getElementById("registerBtn").addEventListener("click", async () => {
   const name = document.getElementById("name").value;
-  const current = parseFloat(document.getElementById("current").value);
-  const goal = parseFloat(document.getElementById("goal").value);
   const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const pass = document.getElementById("password").value;
 
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const uid = userCredential.user.uid;
-
+    const userCred = await createUserWithEmailAndPassword(auth, email, pass);
+    const uid = userCred.user.uid;
     await setDoc(doc(db, "students", uid), {
       name,
-      current,
-      goal,
       email
     });
-
-    localStorage.setItem("student_uid", uid);
-    window.location.href = "dashboard.html";
+    alert("Registration Successful!");
+    window.location.href = "home.html";
   } catch (err) {
-    alert("Error: " + err.message);
+    alert(err.message);
   }
 });

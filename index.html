@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Student Goals - Register</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script type="module" src="js/firebase-init.js" defer></script>
-  <script type="module" src="js/register.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudentDB Home</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+<script src="js/clickspark.js"></script>
 <body>
-  <h1>🎯 Set Your Academic Goals</h1>
-  <form id="registerForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="number" id="current" placeholder="Current %" required>
-    <input type="number" id="goal" placeholder="Goal %" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button type="submit">Register</button>
-  </form>
+  <div class="container" style="">
+    <h1>Welcome to Student DB</h1>
+    <p>Helping you reach your academic goals!</p>
+    
+    <div id="user-info" style="">
+      <p>Welcome, <span id="username"></span>!</p>
+      <button id="logoutBtn">Logout</button>
+    </div>
+      <div id="auth-buttons">
+      <a href="login.html"><button>Login</button></a>
+      <br>
+      <br>
+      <a href="register.html"><button>Register</button></a>
+    </div>
+  </div>
+
+  <script type="module" src="js/firebase-init.js"></script>
+  <script type="module" src="js/firebase-auth.js"></script>
 </body>
 </html>
