@@ -27,10 +27,12 @@ body {
   border-radius: 15px;
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
   text-align: center;
+  background-image: radial-gradient(#ececec 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 input {
-  width: 100%;
+  width: 90%;
   margin: 12px 0;
   padding: 12px;
   border: 1px solid #ddd;
@@ -39,7 +41,7 @@ input {
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #4cbcc4;
   color: white;
   padding: 12px;
   width: 100%;
@@ -51,11 +53,11 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #3bcad4ec;
 }
 
 .logoutBtn {
-  background-color: #f84040;
+  background-color: #f840409c;
   color: rgb(255, 255, 255);
   padding: 12px;
   font-size: 16px;
@@ -66,7 +68,7 @@ button:hover {
 }
 
 .logoutBtn:hover {
-  background-color: #ff32329c;
+  background-color: #ff3232;
 }
 
 a {
@@ -149,9 +151,9 @@ a {
 }
 .resources a {
   text-decoration: none;
-  color: #4caf50;
+  color: #17cece;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.0rem;
 }
 
 @keyframes slideFadeIn {
@@ -159,4 +161,48 @@ a {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.online-counter {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-weight: 600;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 999;
+  backdrop-filter: blur(6px);
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  cursor: pointer;
+  width: 10%;
+  background-color: transparent;
+  border: none;
+  color: gray;
+  transform: scaleY(0.9);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.close:hover {
+  color: darkgray;
+  background-color: transparent;
+}
+
+.close_a {
+  text-decoration: none;
+  color: gray;
+}
+
+.close_a:hover {
+  color: darkgray;
+  background-color: transparent;
 }

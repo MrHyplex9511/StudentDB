@@ -7,14 +7,51 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <script src="js/clickspark.js"></script>
+<script>
+  // Generate a random interval between 10s and 45s
+  const timer = Math.floor(Math.random() * (45000 - 10000 + 1)) + 10000;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const userCountSpan = document.getElementById("userCount");
+
+    function getRandomUserCount(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Set initial fake user count in sessionStorage if not already set
+    if (!sessionStorage.getItem("fakeUserCount")) {
+      const initialCount = getRandomUserCount(1, 6);
+      sessionStorage.setItem("fakeUserCount", initialCount);
+    }
+
+    // Function to update the count (this updates sessionStorage as well)
+    function updateUserCount() {
+      const count = getRandomUserCount(1, 6);
+      sessionStorage.setItem("fakeUserCount", count);
+      userCountSpan.textContent = count;
+    }
+
+    // Set initial count from sessionStorage
+    userCountSpan.textContent = sessionStorage.getItem("fakeUserCount");
+
+    // Update periodically with new random count between 23-26
+    setInterval(updateUserCount, timer);
+  });
+</script>
 <body>
   <div class="container" style="">
-    <h1>Welcome to Student DB</h1>
+    <h1>Welcome to StudentDB!</h1>
     <p>Helping you reach your academic goals!</p>
-    
+
+    <div id="online-counter" class="online-counter">📖
+   <span id="userCount">0</span> students online
+</div>
+<br>
     <div id="user-info" style="">
       <p>Welcome, <span id="username"></span>!</p>
       <button href="home.html">Continue</button>
+      <br>
+      <br>
       <button id="logoutBtn">Logout</button>
     </div>
       <div id="auth-buttons">
@@ -24,7 +61,6 @@
       <a href="register.html"><button>Register</button></a>
     </div>
   </div>
-
   <script type="module" src="js/firebase-init.js"></script>
   <script type="module" src="js/firebase-auth.js"></script>
 </body>

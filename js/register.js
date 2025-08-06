@@ -15,7 +15,8 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
     const uid = userCred.user.uid;
     await setDoc(doc(db, "students", uid), {
       name,
-      email
+      email,
+      pass
     });
     alert("Registration Successful!");
     window.location.href = "home.html";
