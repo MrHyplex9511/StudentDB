@@ -6,5 +6,5 @@ const auth = getAuth(app);
 document.getElementById("logoutBtn").addEventListener("click", async () => {
   await signOut(auth);
   alert("Logged out!");
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 });

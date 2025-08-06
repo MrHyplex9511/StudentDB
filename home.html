@@ -8,23 +8,57 @@
   <script type="module" src="js/home.js" defer></script>
 </head>
 <script src="js/clickspark.js"></script>
+<script>
+  // Generate a random interval between 10s and 45s
+  const timer = Math.floor(Math.random() * (45000 - 10000 + 1)) + 10000;
 
-<body class="fancy-background">
-  <div class="container">
+  document.addEventListener("DOMContentLoaded", () => {
+    const userCountSpan = document.getElementById("userCount");
+
+    function getRandomUserCount(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Set initial fake user count in sessionStorage if not already set
+    if (!sessionStorage.getItem("fakeUserCount")) {
+      const initialCount = getRandomUserCount(1, 6);
+      sessionStorage.setItem("fakeUserCount", initialCount);
+    }
+
+    // Function to update the count (this updates sessionStorage as well)
+    function updateUserCount() {
+      const count = getRandomUserCount(1, 6);
+      sessionStorage.setItem("fakeUserCount", count);
+      userCountSpan.textContent = count;
+    }
+
+    // Set initial count from sessionStorage
+    userCountSpan.textContent = sessionStorage.getItem("fakeUserCount");
+
+    // Update periodically with new random count between 23-26
+    setInterval(updateUserCount, timer);
+  });
+</script>
+<body>
+  <div id="online-counter" class="online-counter">📖
+   <span id="userCount">0</span> students online
+</div>
+  <div class="container" id="resources">
     <h1>Welcome to StudentDB</h1>
     <p>Access your study materials, track goals, and crush procrastination!</p>
     <div class="resources">
       <h2>Useful Study Websites</h2>
       <ul id="animatedList">
-        <li><a href="https://epathshala.nic.in" target="_blank">ePathshala (NCERT Textbooks & Resources)</a></li>
-        <li><a href="https://vedantu.com/study-material" target="_blank">Vedantu: CBSE Class 9 Materials</a></li>
-        <li><a href="https://edurev.in/explore/26/Class-9" target="_blank">EduRev: Notes & MCQs</a></li>
-        <li><a href="https://www.ndl.gov.in" target="_blank">NDLI: National Digital Library</a></li>
-        <li><a href="https://www.jagranjosh.com" target="_blank">Jagran Josh Education</a></li>
+        <li><a class="link-a" href="https://epathshala.nic.in" target="_blank">ePathshala (NCERT Textbooks & Resources)</a></li>
+        <li><a class="link-a" href="https://vedantu.com/study-material" target="_blank">Vedantu: CBSE Class 9 Materials</a></li>
+        <li><a class="link-a" href="https://edurev.in/explore/26/Class-9" target="_blank">EduRev: Notes & MCQs</a></li>
+        <li><a class="link-a" href="https://www.ndl.gov.in" target="_blank">NDLI: National Digital Library</a></li>
+        <li><a class="link-a" href="https://www.jagranjosh.com" target="_blank">Jagran Josh Education</a></li>
       </ul>
     </div>
+    <hr class="dotted-hr">
   </div>
-  <button class="logoutBtn" style="position: fixed; bottom: 0; left: 0;" id="logoutBtn">Logout</button>
+  <button class="logoutBtn" style="position: fixed; bottom: 10px; left: 10px;" id="logoutBtn">Logout</button>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('#animatedList li');
