@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Apps and Youtube</title>
+  <title>StudentDB:Apps</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -25,13 +25,13 @@
       display: flex;
       gap: 20px;
       overflow-x: auto;
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
       overflow-y: visible;
-      padding-top: 15px;
-      padding-left: 15px;
-      padding-bottom: 15px;
-      padding-right: 15px;
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      padding-right: 20px;
     }
 
      .container-wrapper::-webkit-scrollbar {
@@ -80,7 +80,7 @@
       .container:hover {
       transform: translateY(-5px) scale(1.05);
       transition: transform 0.3s ease;
-      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 30px rgba(20, 20, 20, 0.76);
     }
 
     .container {
@@ -120,10 +120,29 @@
     button:hover {
       background-color: #3bd45cec;
     }
+
+
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background-color: #00adc459;
+  animation: sparkle-fade 300ms ease-out forwards;
+}
+
+@keyframes sparkle-fade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(4); }
+}
+
   </style>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script src="js/clickspark.js"></script>
 </head>
 <body>
   <div class="container-wrapper">
+    <a href="home.html">
+    </a>
     <div class="container">
       <h1>LoopLearning</h1>
       <p>A learning platform of Podar Network equipped with Year long resources with tasks.</p>

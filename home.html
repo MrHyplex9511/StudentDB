@@ -52,19 +52,6 @@
     </div>
   </div>
   <button class="logoutBtn" style="position: fixed; bottom: 10px; left: 10px;" id="logoutBtn">Logout</button>
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.getElementById("theme-toggle");
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === "dark") document.body.classList.add("dark");
-
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      const newTheme = document.body.classList.contains("dark") ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-    });
-  });
-</script>
 </body>
 </html>
 
