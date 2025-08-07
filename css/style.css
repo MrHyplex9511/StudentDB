@@ -2,11 +2,12 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9f9f9;
+  background-color: #1a1a1a;
   margin: 0;
   padding: 0;
-  background-image: radial-gradient(#ccc 1px, transparent 1px);
+  background-image: radial-gradient(#3f434d 1px, transparent 1px);
   background-size: 20px 20px;
+  color: white;
 }
 
 .container {
@@ -17,11 +18,11 @@ body {
   max-width: 400px;
   margin: 0;
   padding: 30px;
-  background-color: white;
+  background-color: #272a30;
   border-radius: 15px;
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
   text-align: center;
-  background-image: radial-gradient(#ececec 1px, transparent 1px);
+  background-image: radial-gradient(#3f434da8 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -29,13 +30,15 @@ input {
   width: 90%;
   margin: 12px 0;
   padding: 12px;
-  border: 1px solid #ddd;
+  background-color: #282c34;
+  border: 1px solid #333;
   border-radius: 8px;
   font-size: 16px;
+  color: white;
 }
 
 button {
-  background-color: #4cbcc4;
+  background-color: #4caf50;
   color: white;
   padding: 12px;
   width: 100%;
@@ -47,12 +50,12 @@ button {
 }
 
 button:hover {
-  background-color: #3bcad4ec;
+  background-color: #3bd45cec;
 }
 
 .logoutBtn {
-  background-color: #f840409c;
-  color: rgb(255, 255, 255);
+  background-color: #ff00009c;
+  color: white;
   padding: 12px;
   font-size: 16px;
   border-radius: 8px;
@@ -62,7 +65,7 @@ button:hover {
 }
 
 .logoutBtn:hover {
-  background-color: #ff3232;
+  background-color: #ff3232c9;
 }
 
 .link-a {
@@ -88,7 +91,7 @@ button:hover {
 }
 .resources h2 {
   font-size: 1.8rem;
-  color: #333;
+  color: white;
   margin-bottom: 20px;
 }
 .resources ul {
@@ -118,11 +121,11 @@ button:hover {
   position: fixed;
   top: 10px;
   right: 15px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(26, 26, 26, 0.7);
   border-radius: 8px;
   padding: 6px 12px;
   font-weight: 600;
-  color: #333;
+  color: white;
   font-family: 'Segoe UI', sans-serif;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   z-index: 999;
@@ -164,18 +167,39 @@ button:hover {
   margin: 20px 0;
 }
 
-.navbar-a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 1.0rem;
+
+.cube-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  background: #060010;
 }
 
-.navbar-a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 1.0rem;
-  backdrop-filter: blur(6px);
+.cube {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  animation: floatCube 15s linear infinite;
+}
 
+@keyframes floatCube {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(720deg);
+    opacity: 0;
+  }
 }
