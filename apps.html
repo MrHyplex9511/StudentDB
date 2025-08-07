@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apps and Youtube</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: radial-gradient(#3f434d 1px, transparent 1px);
+      background-size: 20px 20px;
+      color: white;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+
+    .container-wrapper {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      overflow-y: visible;
+      padding-top: 15px;
+      padding-left: 15px;
+      padding-bottom: 15px;
+      padding-right: 15px;
+    }
+
+     .container-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      padding: 30px 20px;
+      background-color: #272a30;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(54, 54, 54, 0.863);
+      background-image: radial-gradient(#3f434da8 1px, transparent 1px);
+      background-size: 20px 20px;
+      width: 200px;
+      min-height: 300px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -60%;
+      width: 60px;
+      height: 300%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      transition: transform 0.7s ease, left 0.7s ease;
+      pointer-events: none;
+    }
+
+    .container:hover::before {
+      left: 140%;
+      
+    }
+      .container:hover {
+      transform: translateY(-5px) scale(1.05);
+      transition: transform 0.3s ease;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .container {
+      transition: transform 0.3s ease;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      color: white;
+      text-align: justify;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+
+    a {
+      margin-top: auto;
+      text-decoration: none;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3bd45cec;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-wrapper">
+    <div class="container">
+      <h1>LoopLearning</h1>
+      <p>A learning platform of Podar Network equipped with Year long resources with tasks.</p>
+      <a href="https://www.looplearning.com/" target="_blank"><button>Visit Site</button></a>
+    </div>
+    <div class="container">
+      <h1>Calendar</h1>
+      <p>A calendar platform by Google which works right on the web. Compatible with Google Tasks.</p>
+      <a href="https://calendar.google.com" target="_blank"><button>Visit Site</button></a>
+    </div>
+    <div class="container">
+      <h1>Tasks</h1>
+      <p>A to-do list and tasks platform by Google which works right on the web and is compatible with Calendar.</p>
+      <a href="https://tasks.google.com/tasks/" target="_blank"><button>Visit Site</button></a>
+    </div>
+    <div class="container">
+      <h1>SST Youtube</h1>
+      <p>A YouTube namely OverSimplified. Explains concepts in a way that is easy to understand with funny animations.</p>
+      <a href="https://www.youtube.com/OverSimplified" target="_blank"><button>View Channel</button></a>
+    </div>
+  </div>
+</body>
+</html>
+
