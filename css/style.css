@@ -35,23 +35,54 @@ input {
   border-radius: 8px;
   font-size: 16px;
   color: white;
+  transition: tranform 0.3s ease;
 }
 
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+input:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
-button:hover {
-  background-color: #3bd45cec;
-}
+    button {
+      position: relative;
+      overflow: hidden;
+      background-color: #4caf50;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.5s ease, box-shadow 0.3s ease;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 125%;
+      width: 50px;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.616) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-25deg);
+      transition: all 1s ease;
+    }
+
+    button:hover::before {
+      left: -125%;
+    }
+
+    button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(20, 20, 20, 0.76);
+      background-color: #55c259;
+    }
 
 .logoutBtn {
   background-color: #ff00009c;
