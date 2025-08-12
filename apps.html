@@ -159,6 +159,32 @@
   </style>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <script src="js/clickspark.js"></script>
+  <script>(()=>{document.addEventListener("contextmenu",e=>e.preventDefault());document.addEventListener("dragstart",e=>e.preventDefault());document.addEventListener("copy",e=>{e.preventDefault();alert("Copying is disabled.");});document.addEventListener("cut",e=>e.preventDefault());document.addEventListener("paste",e=>e.preventDefault());["keydown","keypress"].forEach(ev=>document.addEventListener(ev,e=>{if(e.ctrlKey&&["u","s","c","x","v"].includes(e.key.toLowerCase())||e.key==="F12"){e.preventDefault();alert("Developer shortcuts are disabled.");}}));if(top!==self)top.location=self.location;history.replaceState(null,null,location.pathname);window.onbeforeunload=()=>"";setInterval(()=>{if(window.outerWidth-window.innerWidth>200||window.outerHeight-window.innerHeight>200)alert("Developer tools detected!");},1000);})()</script>
+  <script>
+function sanitizeInput(input) {
+  // Remove dangerous protocols
+  input = input.replace(/(javascript:|data:|vbscript:)/gi, '');
+  // Strip HTML tags
+  input = input.replace(/<[^>]*>?/gm, '');
+  // Encode HTML entities
+  input = input.replace(/&/g, '&amp;')
+               .replace(/</g, '&lt;')
+               .replace(/>/g, '&gt;')
+               .replace(/"/g, '&quot;')
+               .replace(/'/g, '&#039;');
+  // Remove SQL keywords (basic client-side defense)
+  input = input.replace(/\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION|--|;)\b/gi, '');
+  // Trim & normalize spaces
+  return input.trim().replace(/\s+/g, ' ');
+}
+
+// Example usage:
+document.addEventListener('input', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+    e.target.value = sanitizeInput(e.target.value);
+  }
+});
+</script>
 </head>
 <body>
   <div class="container-wrapper">
