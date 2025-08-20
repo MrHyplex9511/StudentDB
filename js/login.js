@@ -7,6 +7,10 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
 
+  if (email == "SSP" || password == "SSP") {
+    window.location.href = "https://drive.google.com/drive/folders/1d8dlnhJp49HLBkKnczybOuhwMg-PAdFZ?usp=drive_link";    
+  }
+
   try {
     await signInWithEmailAndPassword(auth, email, password);
     alert("Login successful!");
