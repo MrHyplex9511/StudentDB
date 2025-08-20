@@ -11,6 +11,10 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
     window.location.href = "https://drive.google.com/drive/folders/1d8dlnhJp49HLBkKnczybOuhwMg-PAdFZ?usp=drive_link";    
   }
 
+  if (email== "troll" || password == "troll") {
+    window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0";    
+  }
+
   try {
     await signInWithEmailAndPassword(auth, email, password);
     alert("Login successful!");
